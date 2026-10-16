@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Muniyappa Caterings"
+description = "A premium, responsive catering website prototype for Muniyappa Caterings, with editable services and demonstration menu content, food gallery, and a quote enquiry flow."
+version = "1.0.0"
+id = "artifacts/muniyappa-caterings"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20850
+
+[services.development]
+run = "pnpm --filter @workspace/muniyappa-caterings run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/muniyappa-caterings", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/muniyappa-caterings/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20850"
+BASE_PATH = "/"
