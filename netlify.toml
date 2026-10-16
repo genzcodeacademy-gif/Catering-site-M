@@ -1,4 +1,5 @@
 
 [build]
-  command = "pnpm install --frozen-lockfile && pnpm --filter \"./artifacts/muniyappa-caterings\" run build"
+  base = "."
+  command = "pnpm install --frozen-lockfile && pnpm --filter './artifacts/muniyappa-caterings' run build"
   publish = "artifacts/muniyappa-caterings/dist"
